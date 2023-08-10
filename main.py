@@ -18,9 +18,8 @@
 #             temperatures.append(int(row[1]))
 #     print(temperatures)
 #
-import pandas
 
-data = pandas.read_csv("weather_data.csv")
+#data = pandas.read_csv("weather_data.csv")
 # #You can specify the name of column to read data
 # data_dict = data.to_dict()
 # print(data_dict)
@@ -57,11 +56,29 @@ data = pandas.read_csv("weather_data.csv")
 
 #Create df from scratch
 
-data_dic = {
-    "fruits": ["bananas", "apples","oranges"],
-    "price": [500,1990,2500]
+# data_dic = {
+#     "fruits": ["bananas", "apples","oranges"],
+#     "price": [500,1990,2500]
+# }
+#
+# data = pandas.DataFrame(data_dic)
+# print(data)
+# data.to_csv("fruits-list.csv")
+import pandas
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+squirrel_fur_colors = data['Primary Fur Color'].tolist()
+print(squirrel_fur_colors)
+cinnamon = squirrel_fur_colors.count('Cinnamon')
+gray = squirrel_fur_colors.count('Gray')
+black = squirrel_fur_colors.count('Black')
+
+squirrel_data = {
+    "Fur Color": ["Cinnamon", "Gray", "Black"],
+    "Squirrel Count": [cinnamon,gray,black]
 }
 
-data = pandas.DataFrame(data_dic)
-print(data)
-data.to_csv("fruits-list.csv")
+squirrel_df = pandas.DataFrame(squirrel_data)
+print(squirrel_df)
+squirrel_df.to_csv("Squirrel-summary.csv")
+
+
