@@ -67,7 +67,11 @@
 import pandas
 data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 squirrel_fur_colors = data['Primary Fur Color'].tolist()
-print(squirrel_fur_colors)
+
+##Another way is to filter each color individually
+gray_squirrel_count = len(data[data["Primary Fur Color"] == "Gray"])
+##
+
 cinnamon = squirrel_fur_colors.count('Cinnamon')
 gray = squirrel_fur_colors.count('Gray')
 black = squirrel_fur_colors.count('Black')
